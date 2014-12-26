@@ -4,13 +4,18 @@ Exploring [Chernoff faces][3]!
 
 ## Installation
 
-* `brew update && brew install node`
+* `brew update && brew install node cairo` (`cairo` is required by `Paper.js`)
 * `npm i`
+* `npm i -g bower`
+* `bower i` (This installs frontend javascript components)
 
 ## Usage
 
-* Launch REPL: `npm start`
+* Launch REPL: `npm run repl` or `npm start` (for now)
 * Run tests: `npm test`
+* Launch static server: `npm run server`
+* Open the html page where we visualize things: `npm run display`
+* Other scripts: `npm run`
 
 ## Dev Log
 
@@ -48,6 +53,11 @@ Exploring [Chernoff faces][3]!
     // random javascript
     })(parent || global); };
     ```
+- Oh, the project tooling rabbit hole... I want to use Paper.js again (past experience
+ in my [socketyballs][7] experiment was nice). But it's a big honking component so I
+ should use Bower... and now the installation is a bit more complicated, but maintenance
+ a bit easier.
+
 
 [1]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [2]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/

@@ -4,7 +4,10 @@
   "description": "Exploring Chernoff faces",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/repl.js",
+    "start": "npm run repl",
+    "display": "open http://127.0.0.1:8080/display.html",
+    "repl": "node src/repl.js",
+    "server": "node src/server.js",
     "test": "mocha -R spec ./spec/main_spec.js"
   },
   "keywords": [
@@ -16,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "functional-node": "^1.0.2",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "node-static": "^0.7.6"
   }
 }

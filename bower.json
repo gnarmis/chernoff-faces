@@ -1,0 +1,24 @@
+{
+  "name": "tongue-in-cheek",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gnarmis/tongue-in-cheek",
+  "authors": [
+    "Gursimran Singh <g@kilotau.com>"
+  ],
+  "description": "Frontend code dependencies for tongue-in-cheek",
+  "keywords": [
+    "visualization"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper": "~0.9.21"
+  }
+}
