@@ -4,6 +4,7 @@
   "description": "Exploring Chernoff faces",
   "main": "src/main.js",
   "scripts": {
+    "start": "node src/repl.js",
     "test": "mocha -R spec ./spec/main_spec.js"
   },
   "keywords": [
@@ -14,6 +15,7 @@
   "author": "Gursimran Singh",
   "license": "ISC",
   "dependencies": {
+    "functional-node": "^1.0.2",
     "mocha": "^2.1.0"
   }
 }
