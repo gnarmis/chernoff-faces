@@ -1,0 +1,19 @@
+{
+  "name": "tongue-in-cheek",
+  "version": "0.0.1",
+  "description": "Exploring Chernoff faces",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "mocha -R spec ./spec/main_spec.js"
+  },
+  "keywords": [
+    "Chernoff",
+    "visualization",
+    "graphing"
+  ],
+  "author": "Gursimran Singh",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^2.1.0"
+  }
+}
