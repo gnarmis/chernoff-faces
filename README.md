@@ -65,3 +65,4 @@ Exploring [Chernoff faces][3]!
 [4]: http://osteele.com/sources/javascript/functional/
 [5]: https://github.com/bailus/functional-node
 [6]: https://github.com/bailus/functional-node/blob/master/node_modules/functional-node/functional.js#L1-L2
+[7]: https://github.com/gnarmis/socketyballs
