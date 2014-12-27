@@ -14,8 +14,12 @@ Exploring [Chernoff faces][3]!
 * Launch REPL: `npm run repl` or `npm start` (for now)
 * Run tests: `npm test`
 * Launch static server: `npm run server`
+* Open the main html page: `npm run index`
 * Open the html page where we visualize things: `npm run display`
 * Other scripts: `npm run`
+
+Launch the server using `npm run server`. All important links are accessible from `localhost:8080/index.html`. You can also open this main page with
+`npm run index`.
 
 ## Documentation
 
