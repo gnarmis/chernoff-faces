@@ -87,6 +87,7 @@
     My approach: work on a single feature and solve this interpolation
     problem. It doesn't exist on bower so I'll add it to bower first.
 
+- Packaged up [faces.js][facesjs-bower]
 
 [node-gitignore]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [node-new-projects]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
@@ -98,3 +99,4 @@
 [d3-chernoff-discussion]: https://groups.google.com/forum/#!topic/d3-js/qiOZSnHouwM
 [d3-chernoff-eg]: http://www.larsko.org/v/hpi/
 [face-gen]: http://dumbmatter.com/facesjs/
+[facesjs-bower]: https://github.com/gnarmis/facesjs

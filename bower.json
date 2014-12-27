@@ -19,8 +19,8 @@
     "tests"
   ],
   "dependencies": {
-    "paper": "~0.9.21",
     "functional-bower": "*",
-    "jasmine-standalone": "*"
+    "jasmine-standalone": "*",
+    "facesjs-bower": "*"
   }
 }

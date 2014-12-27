@@ -4,22 +4,29 @@ Exploring [Chernoff faces][3]!
 
 ## Installation
 
-* `brew update && brew install node cairo` (`cairo` is required by `Paper.js`)
+* `./bootstrap.sh`
+
+OR...
+
+* `brew update && brew install node`
 * `npm i`
 * `npm i -g bower`
 * `bower i` (This installs frontend javascript components)
 
 ## Usage
 
-* Launch REPL: `npm run repl` or `npm start` (for now)
-* Run tests: `npm test`
-* Launch static server: `npm run server`
+Launch the server using `npm run server`. Then, all important links are
+accessible from `localhost:8080/index.html`. You can also open this main page
+with `npm run index` after the server is running.
+
+* Launch static server: `npm start`
 * Open the main html page: `npm run index`
 * Open the html page where we visualize things: `npm run display`
-* Other scripts: `npm run`
+* Open the test page where Jasmine specs run: `npm test`
 
-Launch the server using `npm run server`. All important links are accessible from `localhost:8080/index.html`. You can also open this main page with
-`npm run index`.
+* Launch basic REPL: `npm run repl`
+* Learn about all scripts: `npm run`
+
 
 ## Documentation
 
