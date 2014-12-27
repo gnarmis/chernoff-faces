@@ -20,8 +20,8 @@
     ```
 
 - There are a number of functional programming libraries in Javascript. There's
-  `fn.js`, `functional.js`, `mori`, and Oliver Steele's `functional` (
-  [details][functional-javascript]).I picked Oliver Steele's because it looked
+  `fn.js`, `functional.js`, `mori`, and Oliver Steele's `functional`
+  ([details][functional-javascript]). I picked Oliver Steele's because it looked
   like it would lead to compact, easy to read and write code. Used a
   [node port][functional-node] for that lib.
 
@@ -52,6 +52,7 @@
   interfaces first. Perhaps try it out with the "smile"/"lips" component?
   Splines?
 
+- Changing the test folder and updating scripts. Just sticking with defaults.
 
 [node-gitignore]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [node-new-projects]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/

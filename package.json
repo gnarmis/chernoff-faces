@@ -8,7 +8,7 @@
     "display": "open http://127.0.0.1:8080/display.html",
     "repl": "node src/repl.js",
     "server": "node src/server.js",
-    "test": "mocha -R spec ./spec/main_spec.js"
+    "test": "mocha -R spec ./test/main_test.js"
   },
   "keywords": [
     "Chernoff",
