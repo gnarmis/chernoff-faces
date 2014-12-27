@@ -51,3 +51,26 @@ var normalizeRange = function(numericValues) {
 // simplification: force a smaller range. Or perhaps even separate ranges per
 // feature?
 
+var faceCreator = function() {
+  return {
+    head: {id: 0},
+    hair: {id: 0},
+    eyebrows: [
+      {id: 0, lr: "l", cx: 135, cy: 250},
+      {id: 0, lr: "r", cx: 265, cy: 250}
+    ],
+    eyes: [
+      {id: 1, lr: "l", cx: 135, cy: 280, angle: 10.553},
+      {id: 1, lr: "r", cx: 265, cy: 280, angle: 10.553}
+    ],
+    nose: {id: 1, lr: "l", cx: 200, cy: "330", size: 0.624, flip: true},
+    mouth: {id: 1, cx: 200, cy: 400},
+    fatness: 0.813,
+    color:"#f2d6cb"
+  };
+};
+
+// Example display of a face: faces.display('face1', faceCreator())
+
+// Now, we also depend on the bower component 'facesjs-bower'
+
