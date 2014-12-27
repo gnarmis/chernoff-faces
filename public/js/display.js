@@ -21,7 +21,8 @@ var max = 'xs -> numericSort(xs)[count(xs)-1]'.lambda();
 var count = 'xs.length'.lambda();
 var numericCompare = 'a, b -> a <= b ? (a < b ? -1 : 0) : 1'.lambda();
 
-// Apparently Array.sort() is super dumb, so I provide a sorting function for numbers that works as advertised.
+// Apparently Array.sort() is super dumb, so I provide a sorting function for
+// numbers that works as advertised.
 var numericSort = function(array) {
   var numericArray = map('Number(x)', array);
   return numericArray.sort(numericCompare);
@@ -39,3 +40,14 @@ var normalizeRange = function(numericValues) {
 };
 
 // Done with Part 1.
+
+// Hmm, so for a visual representation, I need to first define what facial
+// variables I can handle. This will be affected by my approach to
+
+// Face generation library: http://dumbmatter.com/facesjs/.
+
+// This library will force me to define some way to relate numbers in a
+// particular range to visual differences in each facial feature. One
+// simplification: force a smaller range. Or perhaps even separate ranges per
+// feature?
+

@@ -54,6 +54,40 @@
 
 - Changing the test folder and updating scripts. Just sticking with defaults.
 
+- Packaged up Oliver Steele's library into a Bower component!
+  `github.com/gnarmis/functional-bower`
+
+- I've now switched to a client-side-first approach. So, now I use Jasmine and
+  test in `test.html`.
+
+- Found a D3 Chernoff faces module, but it's very dense.
+  [Here's the Google Groups discussion about it][d3-chernoff-discussion].
+  [Here's a nice, complex example][d3-chernoff-eg] using this library.
+
+- [Found a better commented face generation library][face-gen].
+
+    I made a fiddle to explore this library. Nicely written. Here's an example
+    JSON datum that fully describes a face in this library:
+
+    ```javascript
+    {"head":{"id":0},"eyebrows":[{"id":0,"lr":"l","cx":135,"cy":250},{"id":0,"lr":"r","cx":265,"cy":250}],"eyes":[{"id":1,"lr":"l","cx":135,"cy":280,"angle":4.55309689976275},{"id":1,"lr":"r","cx":265,"cy":280,"angle":4.55309689976275}],"nose":{"id":1,"lr":"l","cx":200,"cy":330,"size":0.623936983756721,"flip":true},"mouth":{"id":1,"cx":200,"cy":400},"hair":{"id":3},"fatness":0.812903706682846,"color":"#f2d6cb"}
+    ```
+
+    You just do `faces.display(container, face)`!
+
+    Hard part: controlling various features with a particular number, and
+    keeping the range of values for that number the same across all features.
+
+    Seems like the approach is to append functions to various features which
+    determine appearance of those features. See multiple
+    `hair.push(function(...) {...})` calls. Then, in the face object, the
+    "id" corresponds to the index of the function in the array correponding
+    to that feature.
+
+    My approach: work on a single feature and solve this interpolation
+    problem. It doesn't exist on bower so I'll add it to bower first.
+
+
 [node-gitignore]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [node-new-projects]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
 [functional-javascript]: http://osteele.com/sources/javascript/functional/
@@ -61,3 +95,6 @@
 [shim-eg]: https://github.com/bailus/functional-node/blob/master/node_modules/functional-node/functional.js#L1-L2
 [socketyballs]: https://github.com/gnarmis/socketyballs
 [arch-design-records]: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
+[d3-chernoff-discussion]: https://groups.google.com/forum/#!topic/d3-js/qiOZSnHouwM
+[d3-chernoff-eg]: http://www.larsko.org/v/hpi/
+[face-gen]: http://dumbmatter.com/facesjs/
