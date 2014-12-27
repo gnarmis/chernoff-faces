@@ -51,26 +51,88 @@ var normalizeRange = function(numericValues) {
 // simplification: force a smaller range. Or perhaps even separate ranges per
 // feature?
 
-var faceCreator = function() {
-  return {
-    head: {id: 0},
-    hair: {id: 0},
-    eyebrows: [
-      {id: 0, lr: "l", cx: 135, cy: 250},
-      {id: 0, lr: "r", cx: 265, cy: 250}
-    ],
-    eyes: [
-      {id: 1, lr: "l", cx: 135, cy: 280, angle: 10.553},
-      {id: 1, lr: "r", cx: 265, cy: 280, angle: 10.553}
-    ],
-    nose: {id: 1, lr: "l", cx: 200, cy: "330", size: 0.624, flip: true},
-    mouth: {id: 1, cx: 200, cy: 400},
-    fatness: 0.813,
-    color:"#f2d6cb"
-  };
+
+
+/*
+* Some Basic Objects
+* These help us delve into the data that powers faces.js
+*/
+
+
+// A basic function object that represents a generic facial feature
+function FacialFeature(options) {
+  if (options==undefined) {options = {}};
+  if (options.id==undefined) {options.id=0;}
+
+  this.id = options.id;
+  this.lr = options.lr;
+  this.cx = options.cx;
+  this.cy = options.cy;
+  this.size = options.size;
+  this.angle = options.angle;
+  this.flip = options.flip;
+};
+FacialFeature.prototype = {};
+
+// Eyebrows as their own FacialFeature. They have a default :cy property
+// because we're treating it as a fixed value.
+function Eyebrow(options) {
+  if (options==undefined) {options={}};
+  if (options.cy==undefined) {options.cy=250;}
+
+  FacialFeature.call(this, options);
+};
+Eyebrow.prototype = Object.create(FacialFeature.prototype);
+
+// Eyes as their own FacialFeature. They have a default :cy property because
+// we're treating it as a fixed value.
+function Eye(options) {
+  if (options==undefined) {options={}};
+  if (options.cy==undefined) {options.cy=280;}
+
+  FacialFeature.call(this, options);
+};
+Eye.prototype = Object.create(FacialFeature.prototype);
+
+// Noses as their own FacialFeature. They have a default :cy property because
+// we're treating it as a fixed value.
+function Nose(options) {
+  if (options==undefined) {options={}};
+  if (options.cy==undefined) {options.cy=330;}
+
+  FacialFeature.call(this, options);
+};
+Nose.prototype = Object.create(FacialFeature.prototype);
+
+// Mouths as their own FacialFeature. They have a default :cy property because
+// we're treating it as a fixed value.
+function Mouth(options) {
+  if (options==undefined) {options={}};
+  if (options.cy==undefined) {options.cy=400;}
+
+  FacialFeature.call(this, options);
+};
+Mouth.prototype = Object.create(FacialFeature.prototype);
+
+// Create an object which facejs can display
+function Face() {
+  this.head = new FacialFeature();
+  this.hair = new FacialFeature();
+  this.eyebrows = map(
+    'opts -> new Eyebrow(opts)'.lambda(),
+    [{lr: 'l', cx: 135}, {lr: 'r', cx: '265'}]
+  );
+  this.eyes = map(
+    'opts -> new Eye(opts)',
+    [{lr: 'l', cx: 135, angle: 5}, {lr: 'r', cx: 265, angle: 5}]
+  );
+  this.nose = new Nose({lr: "l", cx: 200, size: 0.624, flip: true});
+  this.mouth = new Mouth({cx: 200});
+  this.fatness = 0.8;
+  this.color = "#f2d6cb";
 };
 
-// Example display of a face: faces.display('face1', faceCreator())
+// Example display of a face: faces.display('face1', new Face())
 
 // Now, we also depend on the bower component 'facesjs-bower'
 
