@@ -15,7 +15,7 @@ OR...
 
 ## Usage
 
-Launch the server using `npm run server`. Then, all important links are
+Launch the server using `npm start`. Then, all important links are
 accessible from `localhost:8080/index.html`. You can also open this main page
 with `npm run index` after the server is running.
 
