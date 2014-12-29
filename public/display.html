@@ -1,15 +1,22 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Display</title>
   <script src="components/functional-bower/dist/functional.bundle.js" type="text/javascript"></script>
-  <script src="components/facesjs-bower/faces.js" type="text/javascript"></script>
+  <script src="components/d3/d3.min.js" type="text/javascript"></script>
+  <script src="components/chernoff-d3/chernoff.js" type="text/javascript"></script>
   <script src="js/display.js" type="text/javascript"></script>
+  <style type="text/css">
+    .chernoff > * {
+      fill: none;
+      stroke: #000;
+    }
+  </style>
 </head>
 <body>
   <h1>Display</h1>
   <br />
-  <div id="face1" style="width: 500px; text-align: center; margin: 0 auto;"></div>
-  <script>faces.display('face1', new Face());</script>
+  <div id="face"></div>
+  <script type="text/javascript">displayFace('#face', 500, 500);</script>
 </body>
 </html>

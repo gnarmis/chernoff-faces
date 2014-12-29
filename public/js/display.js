@@ -41,98 +41,46 @@ var normalizeRange = function(numericValues) {
 
 // Done with Part 1.
 
+// Part 2...
+
 // Hmm, so for a visual representation, I need to first define what facial
-// variables I can handle. This will be affected by my approach to
+// variables I can handle.
 
-// Face generation library: http://dumbmatter.com/facesjs/.
+// I'll rely on the d3 plugin called chernoff.js to do this. I packaged it up
+// myself for Bower. It exposes various facial features and expects values
+// within particular ranges, which is how I was imagining it anyway. And it
+// uses SVG paths at the bottom, it seems; those looke like they'd take time
+// to master, so I'm glad I can skip that work entirely.
 
-// This library will force me to define some way to relate numbers in a
-// particular range to visual differences in each facial feature. One
-// simplification: force a smaller range. Or perhaps even separate ranges per
-// feature?
+// First, a very simple example to get things displaying.
+// Mostly lifted from http://bl.ocks.org/larskotthoff/2011590
+function displayFace(selector, height, width) {
+  // This seems to be defining how to pull attributes from an object that is
+  // passed in and then call the functions defined in chernoff.js with those
+  // values.
+  var c = d3.chernoff()
+    .face(function(d) { return d.f; })
+    .hair(function(d) { return d.h; })
+    .mouth(function(d) { return d.m; })
+    .nosew(function(d) { return d.nw; })
+    .noseh(function(d) { return d.nh; })
+    .eyew(function(d) { return d.ew; })
+    .eyeh(function(d) { return d.eh; })
+    .brow(function(d) { return d.b; });
 
+  var svg = d3.select(selector).append('svg:svg')
+    .attr('height', height).attr('width', width);
 
+  var data = [
+    {f: 0, h: -1, m: -1, nw: 0.3, nh: 0.3, ew: 0.3, eh: 0.3, b: -1}
+  ];
 
-/*
-* Some Basic Objects
-* These help us delve into the data that powers faces.js
-*/
-
-
-// A basic function object that represents a generic facial feature
-function FacialFeature(options) {
-  if (options==undefined) {options = {}};
-  if (options.id==undefined) {options.id=0;}
-
-  this.id = options.id;
-  this.lr = options.lr;
-  this.cx = options.cx;
-  this.cy = options.cy;
-  this.size = options.size;
-  this.angle = options.angle;
-  this.flip = options.flip;
+  svg.selectAll("g.chernoff").data(data).enter()
+    .append("svg:g")
+    .attr("class", "chernoff")
+    .attr("transform", function(d, i) {
+      return "scale(1." + i + ")translate(" +
+        (i*100) + "," + (i*100) + ")";
+    })
+    .call(c);
 };
-FacialFeature.prototype = {};
-
-// Eyebrows as their own FacialFeature. They have a default :cy property
-// because we're treating it as a fixed value.
-function Eyebrow(options) {
-  if (options==undefined) {options={}};
-  if (options.cy==undefined) {options.cy=250;}
-
-  FacialFeature.call(this, options);
-};
-Eyebrow.prototype = Object.create(FacialFeature.prototype);
-
-// Eyes as their own FacialFeature. They have a default :cy property because
-// we're treating it as a fixed value.
-function Eye(options) {
-  if (options==undefined) {options={}};
-  if (options.cy==undefined) {options.cy=280;}
-
-  FacialFeature.call(this, options);
-};
-Eye.prototype = Object.create(FacialFeature.prototype);
-
-// Noses as their own FacialFeature. They have a default :cy property because
-// we're treating it as a fixed value.
-function Nose(options) {
-  if (options==undefined) {options={}};
-  if (options.cy==undefined) {options.cy=330;}
-
-  FacialFeature.call(this, options);
-};
-Nose.prototype = Object.create(FacialFeature.prototype);
-
-// Mouths as their own FacialFeature. They have a default :cy property because
-// we're treating it as a fixed value.
-function Mouth(options) {
-  if (options==undefined) {options={}};
-  if (options.cy==undefined) {options.cy=400;}
-
-  FacialFeature.call(this, options);
-};
-Mouth.prototype = Object.create(FacialFeature.prototype);
-
-// Create an object which facejs can display
-function Face() {
-  this.head = new FacialFeature();
-  this.hair = new FacialFeature();
-  this.eyebrows = map(
-    'opts -> new Eyebrow(opts)'.lambda(),
-    [{lr: 'l', cx: 135}, {lr: 'r', cx: '265'}]
-  );
-  this.eyes = map(
-    'opts -> new Eye(opts)',
-    [{lr: 'l', cx: 135, angle: 5}, {lr: 'r', cx: 265, angle: 5}]
-  );
-  this.nose = new Nose({lr: "l", cx: 200, size: 0.624, flip: true});
-  this.mouth = new Mouth({cx: 200});
-  this.fatness = 0.8;
-  this.color = "#f2d6cb";
-};
-
-// Example display of a face: faces.display('face1', new Face())
-
-// Now, we also depend on the bower component 'facesjs-bower'
-
