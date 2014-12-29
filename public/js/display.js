@@ -84,3 +84,84 @@ function displayFace(selector, height, width) {
     })
     .call(c);
 };
+
+// Let's focus on a single container and then displaying a face in that single
+// container. Hmm, how about a simple object to represent a face? A function
+// to create such an object.
+
+function Face(element, properties, state) {
+  if (state==undefined) {state = [{
+    face: 0, hair: -1,
+    mouth: -1, brow: 0,
+    nosew: -1, noseh: 0.3,
+    eyew: 0.3, eyeh: 0.3
+  }]};
+  if (properties==undefined) {properties={}};
+  if (properties.height==undefined) {properties.height=500};
+  if (properties.width==undefined) {properties.width=500};
+
+  this.height = properties.height;
+  this.width = properties.width;
+
+  this.svg = function() {
+    return d3.select(element)
+    .append('svg:svg')
+    .attr('height', this.height)
+    .attr('width', this.width);
+  }
+
+  this.chernoffRenderer = d3.chernoff()
+    .face(function(d) { return d.face; })
+    .hair(function(d) { return d.hair; })
+    .mouth(function(d) { return d.mouth; })
+    .nosew(function(d) { return d.nosew; })
+    .noseh(function(d) { return d.noseh; })
+    .eyew(function(d) { return d.eyew; })
+    .eyeh(function(d) { return d.eyeh; })
+    .brow(function(d) { return d.brow; });
+
+  this.update = function(state) {
+    if (state==undefined) {
+      // skip
+    } else {
+      this.state = state;
+      this.remove();
+      this.clearHtml();
+      this.draw();
+    }
+  };
+
+  this.draw = function() {
+    this.svg().selectAll("g.chernoff")
+      .data(this.state)
+      .enter()
+      .append("svg:g")
+      .attr("class", "chernoff")
+      .call(this.chernoffRenderer);
+  };
+
+  this.remove = function() {
+    this.svg().selectAll("g.chernoff").remove();
+  };
+
+  // set initial state
+  this.state = state;
+
+  this.clearHtml = function() {
+    d3.select(element).html("")
+  };
+
+  // clear all internal HTML to ensure d3 creates a new face everything a new
+  // Face object is created for the given element
+  this.clearHtml();
+};
+
+var face1 = [{face: 0, hair: -1, mouth: -1, nosew: 0.3, noseh: 0.3, eyew: 0.3, eyeh: 0.3, brow: -1}];
+var face2 = [{face: 0, hair: 1, mouth: 1, nosew: 0.3, noseh: 0.3, eyew: 0.3, eyeh: 0.3, brow: -1}];
+
+// Example:
+// > var f = new Face();
+// > f.draw();        // face gets drawn!
+// > f.update();      // nothing happens, since there's no arguments
+// > f.update(face2); // existing face replaed with new face
+// > f.state;         // inspect current state
