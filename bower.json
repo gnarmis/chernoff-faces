@@ -21,8 +21,8 @@
   "dependencies": {
     "functional-bower": "*",
     "jasmine-standalone": "*",
-    "facesjs-bower": "*",
     "d3": "~3.5.2",
-    "chernoff-d3": "*"
+    "chernoff-d3": "*",
+    "react": "~0.12.2"
   }
 }

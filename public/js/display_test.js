@@ -1,3 +1,4 @@
+
 describe("min()", function() {
   it("handles naturals", function() {
     expect(min([5,2,3])).toEqual(2);
