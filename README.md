@@ -1,6 +1,8 @@
 # Chernoff Faces
 
-Exploring [Chernoff faces][3]!
+[Demo!](https://gnarmis.github.io/chernoff-faces/)
+
+This project is about exploring [Chernoff faces][3].
 
 Imagine visually comparing election results as they're rolling in on election
 day. You want to see how things like voter turnout, dem-to-repub ratio, votes
