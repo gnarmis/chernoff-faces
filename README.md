@@ -1,4 +1,4 @@
-# Tongue In Cheek
+# Chernoff Faces
 
 Exploring [Chernoff faces][3]!
 

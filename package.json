@@ -1,6 +1,6 @@
 {
-  "name": "tongue-in-cheek",
-  "version": "0.0.1",
+  "name": "chernoff-faces",
+  "version": "0.0.2",
   "description": "Exploring Chernoff faces",
   "main": "src/main.js",
   "scripts": {
@@ -13,7 +13,9 @@
   "keywords": [
     "Chernoff",
     "visualization",
-    "graphing"
+    "graphing",
+    "d3",
+    "react"
   ],
   "author": "Gursimran Singh",
   "license": "ISC",
