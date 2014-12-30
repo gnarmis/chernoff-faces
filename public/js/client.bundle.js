@@ -227,7 +227,7 @@ var ChernoffFace = React.createClass({displayName: "ChernoffFace",
   componentDidMount: function() {
     var el = this.getDOMNode();
     d3ChernoffChart.create(el, {
-      width: '200px',
+      width: '100%',
       height: '200px'
     }, this.getChartState());
   },
@@ -360,13 +360,13 @@ var FaceParamsForm = React.createClass({displayName: "FaceParamsForm",
 
   getInitialState: function() {
     return {
-      face: '0',
-      hair: '1',
-      mouth: '-1',
+      face: '0.2',
+      hair: '-1',
+      mouth: '1.2',
       nosew: '0.3',
       noseh: '0.3',
-      eyew: '0.3',
-      eyeh: '0.3',
+      eyew: '-1.9',
+      eyeh: '0.6',
       brow: '-1'
     };
   },
@@ -374,36 +374,36 @@ var FaceParamsForm = React.createClass({displayName: "FaceParamsForm",
   render: function(){
     return (React.createElement(Grid, null, 
       React.createElement(Row, null, 
-        React.createElement(Col, {xs: 8, md: 6, mdOffset: 6, xsOffset: 4}, 
+        React.createElement(Col, {xs: 7, md: 7, mdOffset: 5, xsOffset: 5}, 
           React.createElement(ChernoffFace, {data: this.composeData()})
         )
       ), 
       React.createElement("form", {id: "faceParams", name: "faceParams", className: "form-horizontal"}, 
       React.createElement(Row, null, 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "face", label: "face", type: "number", step: "0.1", valueLink: this.linkState('face'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "hair", label: "hair", type: "number", steo: "0.1", valueLink: this.linkState('hair'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "mouth", label: "mouth", type: "number", step: "0.1", valueLink: this.linkState('mouth'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "brow", label: "brow", type: "number", step: "0.1", valueLink: this.linkState('brow'), className: "form-control"})
         )
       ), 
       React.createElement(Row, null, 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "nosew", label: "nose w", type: "number", step: "0.1", valueLink: this.linkState('nosew'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "noseh", label: "nose h", type: "number", step: "0.1", valueLink: this.linkState('noseh'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "eyew", label: "eye w", type: "number", step: "0.1", valueLink: this.linkState('eyew'), className: "form-control"})
         ), 
-        React.createElement(Col, {md: 2, xs: 6}, 
+        React.createElement(Col, {md: 3, xs: 6}, 
           React.createElement(Input, {name: "eyeh", label: "eye h", type: "number", step: "0.1", valueLink: this.linkState('eyeh'), className: "form-control"})
         )
       ), 
