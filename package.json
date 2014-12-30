@@ -4,7 +4,7 @@
   "description": "Exploring Chernoff faces",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node lib/server.js",
     "index": "open http://127.0.0.1:8080/index.html",
     "repl": "node lib/repl.js",
     "build": "browserify -t reactify -t debowerify lib/client.js -o public/js/client.bundle.js",
