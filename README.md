@@ -57,6 +57,17 @@ See `doc/development_log.md` for notes on the development of this project.
 Also, see `doc/arch` for a sequential list of files with architecture
 decisions listed.
 
+## To Do
+
+Test it with a complex example?
+
+
+## Credit
+
+Thanks to [Lars Kotthoff](http://www.larsko.org/HomePage) for the chernoff d3
+plugin!
+
+
 
 [1]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [2]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
