@@ -1,0 +1,33 @@
+{
+  "name": "chernoff-d3",
+  "authors": [
+    "Lars Kotthoff (https://github.com/larskotthoff)"
+  ],
+  "description": "A D3 plugin to chart Chernoff faces",
+  "main": "chernoff.js",
+  "keywords": [
+    "Chernoff",
+    "d3",
+    "plugin",
+    "d3",
+    "visualization"
+  ],
+  "license": "LICENSE",
+  "homepage": "https://github.com/gnarmis/chernoff-d3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "c998ced49e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c998ced49e3ce99ecf8fa0f36fbe353c887d123b"
+  },
+  "_source": "git://github.com/gnarmis/chernoff-d3.git",
+  "_target": "*",
+  "_originalSource": "chernoff-d3"
+}

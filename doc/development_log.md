@@ -89,6 +89,16 @@
 
 - Packaged up [faces.js][facesjs-bower]
 
+- Switched to the d3 plugin and used React in tandom with some of my own code
+  to make some stateless components and to provide a nice way to make and
+  interact with Chernoff faces.
+
+- Implemented everything needed for an interactive demo where you can twiddle
+  values and see the Chernoff face update live!
+
+- Re-architected things so I can test things more easily and move away from a
+  single file world.
+
 [node-gitignore]: https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
 [node-new-projects]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
 [functional-javascript]: http://osteele.com/sources/javascript/functional/

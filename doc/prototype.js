@@ -1,3 +1,5 @@
+/* From the timw of single-file experimentation */
+
 // We want a way to translate ranges of numeric values into a standard range
 // of values. Perhaps just normalization to 1..100?
 

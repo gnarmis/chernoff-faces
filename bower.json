@@ -19,10 +19,6 @@
     "tests"
   ],
   "dependencies": {
-    "functional-bower": "*",
-    "jasmine-standalone": "*",
-    "d3": "~3.5.2",
-    "chernoff-d3": "*",
-    "react": "~0.12.2"
+    "chernoff-d3": "*"
   }
 }

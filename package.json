@@ -5,10 +5,10 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node src/server.js",
-    "display": "open http://127.0.0.1:8080/display.html",
     "index": "open http://127.0.0.1:8080/index.html",
-    "test": "open http://127.0.0.1:8080/test.html",
-    "repl": "node src/repl.js"
+    "repl": "node lib/repl.js",
+    "build": "browserify -t reactify -t debowerify lib/client.js -o public/js/client.bundle.js",
+    "test": "node_modules/jasmine-node/bin/jasmine-node spec/"
   },
   "keywords": [
     "Chernoff",
@@ -19,7 +19,14 @@
   "license": "ISC",
   "repository": "https://github.com/gnarmis/tongue-in-cheek",
   "dependencies": {
+    "browserify": "^8.0.2",
+    "d3": "^3.5.2",
+    "debowerify": "^1.2.0",
+    "domready": "^1.0.7",
     "functional-node": "^1.0.2",
-    "node-static": "^0.7.6"
+    "jasmine-node": "^1.14.5",
+    "node-static": "^0.7.6",
+    "react": "^0.12.2",
+    "reactify": "^0.17.1"
   }
 }

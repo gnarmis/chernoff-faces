@@ -2,27 +2,49 @@
 
 Exploring [Chernoff faces][3]!
 
-## Installation
+Imagine visually comparing election results as they're rolling in on election
+day. You want to see how things like voter turnout, dem-to-repub ratio, votes
+counted, etc compare across a few select states. There are a number of
+separate categories (states) and lots of variables for each one, each with
+their own range of possible values.
+
+Very quickly, things gets complicated and hard to follow.
+
+One possible solution is to leverage our adeptness at facial recognition
+by representing a subset of those voting variables as facial features on a set
+of faces, where each face represents a state.
+
+This project aims to make producing and manipulating Chernoff faces easy.
+
+## Usage
+
+Just open `public/index.html` in a browser.
+
+## Development
 
 * `./bootstrap.sh`
 
 OR...
 
 * `brew update && brew install node`
-* `npm i`
-* `npm i -g bower`
-* `bower i` (This installs frontend javascript components)
+* `npm install`
+* `npm install -g bower`
+* `bower install`
 
-## Usage
 
-Launch the server using `npm start`. Then, all important links are
-accessible from `localhost:8080/index.html`. You can also open this main page
-with `npm run index` after the server is running.
+Then,
+
+
+Launch the server using `npm start`. Then, go to `localhost:8080/index.html`.
+You can also open this main page with `npm run index` after the server is
+running.
+
+Other details:
 
 * Launch static server: `npm start`
 * Open the main html page: `npm run index`
-* Open the html page where we visualize things: `npm run display`
-* Open the test page where Jasmine specs run: `npm test`
+* Run tests `npm test`
+* Build out the client side bundle (if any changes in `lib/`): `npm run build`
 
 * Launch basic REPL: `npm run repl`
 * Learn about all scripts: `npm run`
