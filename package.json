@@ -24,6 +24,7 @@
     "browserify": "^8.0.2",
     "d3": "^3.5.2",
     "debowerify": "^1.2.0",
+    "domready": "^1.0.7",
     "functional-node": "^1.0.2",
     "jasmine-node": "^1.14.5",
     "node-static": "^0.7.6",
